@@ -5,6 +5,8 @@ import com.example.StudentCRUD.repo.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentServiceImpl implements StudentService{
 
@@ -18,5 +20,15 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student getStudent(int rollNumber) {
        return studentRepo.getStudent(rollNumber);
+    }
+
+    @Override
+    public List<Student> getStudentList() {
+        return studentRepo.getStudentList();
+    }
+
+    @Override
+    public Student updateStudent(int studentId, Student student) {
+        return studentRepo.updateStudent(studentId, student);
     }
 }
