@@ -25,19 +25,37 @@ public class StudentRepoImpl implements StudentRepo{
 
     @Override
     public List<Student> getStudentList() {
-        ArrayList<Student> students = new ArrayList<Student>();
-     for (Integer n :studentMap.keySet()){
-         students.add(studentMap.get(n));
-     }
-     return students;
+        ArrayList<Student> students = new ArrayList<>(studentMap.values());
+        return students;
     }
 
     @Override
     public Student updateStudent(int studentId , Student student) {
-        if (studentMap.containsKey(studentId)){
+        if (studentMap.containsKey(studentId)) {
             studentMap.put(studentId, student);
             return student;
+        }else {
+            System.out.println("User Not Found" + studentId);
         }
         return null;
     }
+
+    @Override
+    public String deleteStudent(int studentId) {
+       studentMap.remove(studentId);
+       return "student deleted successfully...";
+    }
+
+    @Override
+    public List<Student> getStudentsByBranch(String branch) {
+        List<Student> students = new ArrayList<>();
+       for (int i : studentMap.keySet()){
+           if(branch.equals(studentMap.get(i).getBranch())){
+              students.add(studentMap.get(i));
+           }
+       }
+     return  students;
+    }
+
+
 }

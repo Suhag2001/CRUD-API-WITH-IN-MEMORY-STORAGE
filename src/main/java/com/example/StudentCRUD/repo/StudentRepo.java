@@ -12,4 +12,8 @@ public interface StudentRepo {
     List<Student> getStudentList();
 
     Student updateStudent(int studentId,Student student);
+
+    String deleteStudent(int studentId);
+
+    List<Student> getStudentsByBranch(String branch);
 }

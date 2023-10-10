@@ -33,4 +33,16 @@ public class StudentController {
         return studentService.updateStudent(studentId,student);
     }
 
+   @DeleteMapping("/student/{studentId}")
+    public String deleteStudent(@PathVariable int studentId){
+        return studentService.deleteStudent(studentId);
+   }
+
+
+   @GetMapping("/student/branch/{branch}")
+    public List<Student> getStudentsByBranch(@PathVariable String branch){
+        return studentService.getStudentsByBranch(branch);
+   }
+
+
 }

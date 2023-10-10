@@ -31,4 +31,16 @@ public class StudentServiceImpl implements StudentService{
     public Student updateStudent(int studentId, Student student) {
         return studentRepo.updateStudent(studentId, student);
     }
+
+    @Override
+    public String deleteStudent(int studentId) {
+        return  studentRepo.deleteStudent(studentId);
+    }
+
+    @Override
+    public List<Student> getStudentsByBranch(String branch) {
+        return studentRepo.getStudentsByBranch(branch);
+    }
+
+
 }
