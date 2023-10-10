@@ -42,6 +42,8 @@ public class StudentController {
    @GetMapping("/student/branch/{branch}")
     public List<Student> getStudentsByBranch(@PathVariable String branch){
         return studentService.getStudentsByBranch(branch);
+
+
    }
 
 
